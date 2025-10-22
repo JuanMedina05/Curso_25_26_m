@@ -133,8 +133,22 @@ interface Cliente{
 //          telefono:string,
 //      }
 // }
-function generarMapaClientes(clientes:Cliente[]):map{
-    return
+function generarMapaClientes(clientes:Cliente[]):Map<number,{nombre:string,emain:string,telefono:string}>{
+    const mapaClientes:Map<number,{nombre:string,emain:string,telefono:string}> = new Map();
+
+    clientes.forEach(cliente=>{
+        mapaClientes.set(cliente.id,{
+            nombre:cliente.nombre,
+            emain:cliente.emain,
+            telefono:cliente.telefono,
+        });
+    });
+    return mapaClientes;
 }
 
 
+// Ejercicio calculadora simple: crear una calculadora tipada que realice operaciones básicas, para ello creamos una interfaz llamada operacion que tiene tipo con cutro valores
+//  (suma resta, multiplicacion y division) 
+// operando uno y operación
+// crear una función llamada calculadora que me devuelva el calculo de los dos operandos. Probarlo con 10,5 y 10,0.
+// ¿Se podría ampliar a otras operaciones?
