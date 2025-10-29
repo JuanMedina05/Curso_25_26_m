@@ -152,3 +152,39 @@ function generarMapaClientes(clientes:Cliente[]):Map<number,{nombre:string,emain
 // operando uno y operación
 // crear una función llamada calculadora que me devuelva el calculo de los dos operandos. Probarlo con 10,5 y 10,0.
 // ¿Se podría ampliar a otras operaciones?
+
+
+
+// Map:
+const edades = new Map<string,number>();
+
+edades.set("Juan",25);
+edades.has("Juan"); // devuelve si existe Juan
+
+interface Datos{
+   nombre:string; 
+   email:string;
+   cp:number;
+}
+const misUsuarios = new Map<string,Datos>();
+misUsuarios.set("Antonio",{
+    nombre:"Antonio García",
+    email:"antonio@gmail.com",
+    cp:28014,
+});
+
+
+// Set:
+const mySet = new Set<number>();
+mySet.add(5);
+
+// Crear un sistema de categorías:
+// crear una variable llamada catálogo que tenga dentro un set de productos.
+// crear las siguientes funciones:
+// agregarProducto():boolean
+// mostrarCatalogo():Catalogo
+// Adicionalmente crear una función llamada buscar producto que le pase un string (nombre del producto) o que busque por nombre de producto.
+// Nota: cuidado con el get que a veces devuelve undefined
+
+const catalogo = new Map<string,Set<string>>();
+
