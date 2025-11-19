@@ -1,4 +1,6 @@
+import { imagesData } from "../data/images";
 import { createImageGrid } from "./ImageCard";
+
 
 export function createGalleryApp(){
     // contenedor principal
@@ -39,7 +41,9 @@ export function createGalleryApp(){
         //ged de imágenes
     const gridComponent=document.createElement("h2");
     gridComponent.textContent="aquí irá el componente grid de imágenes"
-    const imageGrid=createImageGrid();
+    const imageComponent=createImageGrid(imagesData);
+
+    main.appendChild(imageComponent.element);
 
 
     main.appendChild(counterComponent);
@@ -48,7 +52,7 @@ export function createGalleryApp(){
 
     // footer -> div con el nombre y url de github
     const footer=document.createElement("footer");
-    footer.className="";
+    footer.className="bg-white shadow-lg sticky top-0 z-40";
 
     const footerContentDiv=document.createElement("div");
     footerContentDiv.className="";
@@ -56,8 +60,12 @@ export function createGalleryApp(){
     const footerPersonalName = document.createElement("p");
     footerPersonalName.textContent="Juan Pérez Medina"
 
-    const footerGithubURL = document.createElement("img")
-    footerGithubURL.className=""
+    const footerGithubURL = document.createElement("img");
+    footerGithubURL.className="";
+
+    footerContentDiv.appendChild(footerPersonalName);
+    footerContentDiv.appendChild(footerGithubURL);
+    footer.appendChild(footerContentDiv);
 
     //añadimos todo al container
     container.appendChild(header);
