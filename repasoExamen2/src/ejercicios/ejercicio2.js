@@ -13,9 +13,39 @@ export function createEj2(){
             .then(data=>data)
             .catch((error)=>console.error("Error:",error));
     }
-
-    fetching().then((d)=>{console.log(d)})
     
     const container = document.createElement("div");
+    
+    // h2
+    const encabezado = document.createElement("h2")
+    encabezado.textContent="Mi Lista de Tareas"
+    container.appendChild(encabezado)
+    
+    // list
+    const list = document.createElement("ul");
+
+
+    fetching().then((tasks)=>{
+        tasks.forEach((task)=>{
+            const item = document.createElement("li");
+            item.textContent=task.texto;
+            item.classList.add("task-item");
+            const completada = task.completada ? "[x]":"[]";
+            
+            
+            if(task.completada){
+                item.classList.add("completed");
+            }
+            item.textContent=`${completada} ${task.texto}`
+            list.appendChild(item);
+        })
+        
+    })
+
+    container.appendChild(list)
+
+
+
+
     return container;
 }
